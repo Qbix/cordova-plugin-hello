@@ -1,6 +1,6 @@
-#import "HWPHello.h"
+#import "QSoundNotification.h"
 
-@implementation HWPHello
+@implementation QSoundNotification
 
 - (void)greet:(CDVInvokedUrlCommand*)command
 {

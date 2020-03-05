@@ -1,45 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="com.example.hello"
-        version="0.7.0">
+        id="cordova-plugin-q-sound-notification"
+        version="0.1.0">
 
-  <name>Hello</name>
+  <name>Cordova Plugin Q Sound Notification</name>
 
   <engines>
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
-  <asset src="www/hello.js" target="js/hello.js"/>
+  <asset src="www/q_sound_notification.js" target="js/q_sound_notification.js"/>
 
-  <js-module src="www/hello.js" name="hello">
-    <clobbers target="hello" />
+  <js-module src="www/q_sound_notification.js" name="Q.Cordova.SoundNotification">
+    <clobbers target="Q.Cordova.SoundNotification" />
   </js-module>
 
   <platform name="android">
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="Hello">
-        <param name="android-package" value="com.example.plugin.Hello"/>
+      <feature name="QSoundNotification">
+        <param name="android-package" value="com.example.plugin.QSoundNotification"/>
       </feature>
     </config-file>
 
-    <source-file src="src/android/Hello.java" target-dir="src/com/example/plugin/"/>
+    <source-file src="src/android/QSoundNotification.java" target-dir="src/com/example/plugin/"/>
   </platform>
 
   <platform name="ios">
+    <hook type="after_plugin_add" src="scripts/create_notification_extension.js"/>
     
-    <config-file target="config.xml" parent="/widget">
-      <feature name="Hello">
-        <param name="ios-package" value="HWPHello" />
+    <!-- <config-file target="config.xml" parent="/widget">
+      <feature name="QSoundNotification">
+        <param name="ios-package" value="QSoundNotification" />
       </feature>
     </config-file>
 
-    <header-file src="src/ios/HWPHello.h" target-dir="HelloPlugin"/>
-    <source-file src="src/ios/HWPHello.m" target-dir="HelloPlugin"/>
-  </platform>
-
-  <platform name="wp7">
-    <source-file src="src/wp7/Hello.cs"/>
+    <header-file src="src/ios/QSoundNotification.h" target-dir="QSoundNotificationPlugin"/>
+    <source-file src="src/ios/QSoundNotification.m" target-dir="QSoundNotificationPlugin"/> -->
   </platform>
 
 </plugin>
