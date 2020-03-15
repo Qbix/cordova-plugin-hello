@@ -1,4 +1,4 @@
-package com.example.plugin;
+package com.qbix.sound.notification;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;

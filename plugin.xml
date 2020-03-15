@@ -19,24 +19,34 @@
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="QSoundNotification">
-        <param name="android-package" value="com.example.plugin.QSoundNotification"/>
+        <param name="android-package" value="com.qbix.sound.notification.QSoundNotification"/>
       </feature>
     </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <service android:name="com.qbix.sound.notification.QNotificationListenerService"
+            android:label="QNotificationListenerService"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+        <intent-filter>
+          <action android:name="android.service.notification.NotificationListenerService" />
+        </intent-filter>
+      </service>
+    </config-file>
 
-    <source-file src="src/android/QSoundNotification.java" target-dir="src/com/example/plugin/"/>
+    <source-file src="src/android/QSoundNotification.java" target-dir="src/com/qbix/sound/notification/"/>
+    <source-file src="src/android/QNotificationListenerService.java" target-dir="src/com/qbix/sound/notification/"/>
   </platform>
 
   <platform name="ios">
     <hook type="after_plugin_add" src="scripts/create_notification_extension.js"/>
     
-    <!-- <config-file target="config.xml" parent="/widget">
+    <config-file target="config.xml" parent="/widget">
       <feature name="QSoundNotification">
         <param name="ios-package" value="QSoundNotification" />
       </feature>
     </config-file>
 
     <header-file src="src/ios/QSoundNotification.h" target-dir="QSoundNotificationPlugin"/>
-    <source-file src="src/ios/QSoundNotification.m" target-dir="QSoundNotificationPlugin"/> -->
+    <source-file src="src/ios/QSoundNotification.m" target-dir="QSoundNotificationPlugin"/>
   </platform>
 
 </plugin>
